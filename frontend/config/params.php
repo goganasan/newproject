@@ -2,4 +2,5 @@
 return [
     'adminEmail' => 'admin@example.com',
     'maxNewsInList' => 3,
+    'shortTextLimit' => 60,
 ];

@@ -2,12 +2,24 @@
 
 namespace frontend\components;
 
+use Yii;
+
 
 class StringHelper
 {
-    public function getShort($string)
+    private $limit;
+
+    public function __construct()
     {
-        return substr($string, 0, 20);
+        $this->limit = Yii::$app->params['shortTextLimit'];
+    }
+
+    public function getShort($string, $limit = null)
+    {
+        if ($limit === null) {
+            $limit = $this->limit;
+        }
+        return substr($string, 0, $limit);
     }
 
 }

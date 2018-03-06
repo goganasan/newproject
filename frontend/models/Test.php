@@ -4,7 +4,6 @@ namespace frontend\models;
 
 use yii\base\Model;
 use Yii;
-use frontend\components\StringHelper;
 
 class Test extends Model
 {
@@ -15,13 +14,21 @@ class Test extends Model
 
         $result = Yii::$app->db->createCommand($sql)->queryAll();
 
-        $helper = new StringHelper();
-
         if (!empty($result) && is_array($result)) {
             foreach ($result as &$item) {
-                $item['content'] = $helper->getShort($item['content']);
+                $item['content'] = Yii::$app->stringHelper->getShort($item['content']);
             }
         }
+
+        return $result;
+    }
+
+    public static function getItem($id)
+    {
+        $id = intval($id);
+        $sql = "SELECT * FROM news WHERE id = " . $id ;
+
+        $result = Yii::$app->db->createCommand($sql)->queryOne();
 
         return $result;
     }
