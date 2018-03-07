@@ -16,7 +16,7 @@ class Test extends Model
 
         if (!empty($result) && is_array($result)) {
             foreach ($result as &$item) {
-                $item['content'] = Yii::$app->stringHelper->getShort($item['content']);
+                $item['content'] = Yii::$app->stringHelper->getShortWords($item['content']);
             }
         }
 
