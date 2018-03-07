@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\components;
+namespace common\components;
 
 use Yii;
 
@@ -38,7 +38,7 @@ class StringHelper
         $stringToArray = explode(" ", $string);
         array_splice($stringToArray, $subCount);
 
-        return implode(" ", $stringToArray);
+        return implode(" ", $stringToArray).' ...';
     }
 
 }
