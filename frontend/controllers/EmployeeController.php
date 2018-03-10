@@ -11,6 +11,9 @@ namespace frontend\controllers;
 use yii\web\Controller;
 use frontend\models\Employee;
 
+use frontend\models\example\Animal;
+use frontend\models\example\Human;
+
 
 class EmployeeController extends Controller
 {
@@ -32,6 +35,16 @@ class EmployeeController extends Controller
         echo '<pre>';
         print_r($array);
         echo '</pre>';
+    }
+
+    public function actionTest()
+    {
+        $human1 = new Human;
+        $animal1 = new Animal;
+        echo '<br>';
+        $human1->walk();
+        echo '<br>';
+        $animal1->walk();
     }
 
 
