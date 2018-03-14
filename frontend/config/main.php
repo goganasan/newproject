@@ -63,4 +63,8 @@ return [
         ],
     ],
     'params' => $params,
+    'aliases' => [
+        '@files' => '/app/frontend/web/files',
+        '@photos' => '@files/photos',
+    ],
 ];

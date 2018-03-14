@@ -40,4 +40,9 @@ class TestController extends Controller
         var_dump($result);die;
 
     }
+
+    public function actionExample()
+    {
+        echo Yii::getAlias('@web');
+    }
 }
