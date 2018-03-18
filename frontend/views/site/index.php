@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Url;
+use frontend\widgets\newslist\NewsList;
 
 /* @var $this yii\web\View */
 
@@ -22,21 +23,7 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="col-lg-4">
                 <h2>Heading</h2>
-
-                <?php foreach ($list as $item) : ?>
-
-                    <h1>
-                        <a href="<?= Yii::$app->urlManager->createUrl(['test/view', 'id' => $item['id']]); ?>">
-                            <?php echo $item['title']; ?>
-                        </a>
-                    </h1>
-
-                    <p><?php echo $item['content']; ?></p>
-
-                    <hr>
-
-                <?php endforeach; ?>
-
+                <?php echo NewsList::widget(['showLimit' => 2]) ?>
             </div>
             <div class="col-lg-4">
                 <h2>Heading</h2>

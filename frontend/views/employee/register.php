@@ -1,33 +1,49 @@
 <?php
 /* @var $model frontend\models\Employee */
 
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
+
 if ($model->hasErrors()) {
     echo '<pre>';
     print_r($model->getErrors());
     echo '</pre>';
 }
 ?>
-<h1>Welcome to our company</h1>
 
-<form method="post">
+    <h1>Welcome to our company</h1>
 
-    <p>first name</p>
-    <input name="first_name" type="text" />
-    <br><br>
+<?php $form = ActiveForm::begin(); ?>
 
-    <p>second name</p>
-    <input name="second_name" type="text" />
-    <br><br>
+<?php echo $form->field($model, 'first_name'); ?>
 
-    <p>middle name</p>
-    <input name="middle_name" type="text" />
-    <br><br>
+<?php echo $form->field($model, 'second_name'); ?>
 
-    <p>email</p>
-    <input name="email" type="text" />
-    <br><br>
+<?php echo $form->field($model, 'middle_name'); ?>
 
-    <input type="submit" />
+<?php echo $form->field($model, 'email'); ?>
 
-</form>
-`
+<?php echo $form->field($model, 'birth_date'); ?>
+
+<?php echo $form->field($model, 'start_work_day'); ?>
+
+<?php echo $form->field($model, 'position'); ?>
+
+<?php echo $form->field($model, 'id_code'); ?>
+
+<?php echo $form->field($model, 'city')->dropDownList([
+    '0' => 'Kiev',
+    '1' => 'Moskow',
+    '2' => 'Lvow',
+]);
+?>
+
+<?php echo Html::submitButton('Send', ['class' => 'btn btn-primary']); ?>
+
+<?php ActiveForm::end(); ?>
+
+
+<?php
+
+
+?>

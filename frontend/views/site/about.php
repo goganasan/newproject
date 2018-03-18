@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use frontend\widgets\newslist\NewsList;
 
 $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,19 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <code><?= __FILE__ ?></code>
         </div>
         <div class="col-md-3">
-            <?php foreach ($list as $item) : ?>
-
-                <h1>
-                    <a href="<?= Yii::$app->urlManager->createUrl(['test/view', 'id' => $item['id']]); ?>">
-                        <?php echo $item['title']; ?>
-                    </a>
-                </h1>
-
-                <p><?php echo $item['content']; ?></p>
-
-                <hr>
-
-            <?php endforeach; ?>
+            <?php echo NewsList::widget(['showLimit' => 4]); ?>
         </div>
     </div>
 </div>
