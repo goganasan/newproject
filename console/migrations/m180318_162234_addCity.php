@@ -12,7 +12,7 @@ class m180318_162234_addCity extends Migration
      */
     public function safeUp()
     {
-
+        $this->addColumn('employee', 'city', $this->integer()->after('birth_date'));
     }
 
     /**
@@ -20,9 +20,7 @@ class m180318_162234_addCity extends Migration
      */
     public function safeDown()
     {
-        echo "m180318_162234_addCity cannot be reverted.\n";
-
-        return false;
+        $this->dropColumn('employee', 'city');
     }
 
     /*

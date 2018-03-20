@@ -31,11 +31,7 @@ if ($model->hasErrors()) {
 
 <?php echo $form->field($model, 'id_code'); ?>
 
-<?php echo $form->field($model, 'city')->dropDownList([
-    '0' => 'Kiev',
-    '1' => 'Moskow',
-    '2' => 'Lvow',
-]);
+<?php echo $form->field($model, 'city')->dropDownList($model->getCitiesList());
 ?>
 
 <?php echo Html::submitButton('Send', ['class' => 'btn btn-primary']); ?>

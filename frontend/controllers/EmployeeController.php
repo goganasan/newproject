@@ -81,6 +81,7 @@ class EmployeeController extends Controller
         }
         return $this->render('update', [
             'model' => $model,
-        ]);    }
+        ]);
+    }
 
 }
