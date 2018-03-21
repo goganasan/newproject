@@ -21,29 +21,4 @@ class Publisher extends \yii\db\ActiveRecord
     {
         return 'publisher';
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['date_registered'], 'safe'],
-            [['identity_number'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'date_registered' => 'Date Registered',
-            'identity_number' => 'Identity Number',
-        ];
-    }
 }

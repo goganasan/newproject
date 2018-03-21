@@ -28,21 +28,47 @@ class Book extends ActiveRecord
         ];
     }
 
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
     public function getDataPublished()
     {
         return ($this->date_published) ? Yii::$app->formatter->asDate($this->date_published) : "Not set";
     }
 
+    /**
+     * @return array|Book|null|ActiveRecord
+     */
     public function getPublisher()
     {
         return $this->hasOne(Publisher::class, ['id' => 'publisher_id'])->one();
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getPublisherName()
     {
         if ($publisher = $this->getPublisher()) {
             return $publisher->name;
         }
         return 'Not set';
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBookToAuthorRelations()
+    {
+        return $this->hasMany(BookToAuthor::class, ['book_id' => 'id']);
+    }
+
+    /**
+     * @return array|Book[]|ActiveRecord[]
+     */
+    public function getAuthors()
+    {
+        return $this->hasMany(Author::class, ['id' => 'author_id'])->via('bookToAuthorRelations')->all();
     }
 }

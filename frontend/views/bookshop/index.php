@@ -9,14 +9,10 @@
         <h3><?php echo $book->name; ?></h3>
         <p><?php echo $book->getDataPublished(); ?></p>
 
-        <?php
-
-        echo $book->getPublisherName();
-
-//        echo '<pre>';
-//        print_r($publisher);
-//        echo '</pre>';
-        ?>
+        <p><?php echo $book->getPublisherName(); ?></p>
+        <?php foreach ($book->getAuthors() as $author): ?>
+            <p><?php echo $author->first_name . ' ' . $author->last_name ?></p>
+        <?php endforeach; ?>
         <hr>
 
     </div>
