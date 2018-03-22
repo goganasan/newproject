@@ -10,7 +10,7 @@ namespace frontend\models;
 
 use yii\db\ActiveRecord;
 use Yii;
-//use frontend\models\Publisher;
+use frontend\models\Publisher;
 
 class Book extends ActiveRecord
 {

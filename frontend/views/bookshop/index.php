@@ -1,8 +1,11 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $bookList [] frontend\models\Book */
+use yii\helpers\Url;
+use yii\helpers\Html;
 ?>
     <h1>Books</h1>
+<?php echo Html::a('Create book', [Url::to('bookshop/create')], ['class' => 'btn btn-primary'])?><br><br>
 
 <?php foreach ($bookList as $book) : ?>
     <div class="col-md-10">

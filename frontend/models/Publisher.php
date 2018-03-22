@@ -2,7 +2,7 @@
 
 namespace frontend\models;
 
-use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "publisher".
@@ -20,5 +20,11 @@ class Publisher extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'publisher';
+    }
+
+    public static function getList()
+    {
+        $result = self::find()->asArray()->all();
+        return ArrayHelper::map($result, 'id', 'name');
     }
 }
